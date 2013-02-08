@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1360286473 source:/home/james/CppTextAdvGame/main.cpp
+	<iostream>
+	"include/Game.h"
+
+1360288755 source:/home/james/CppTextAdvGame/src/Game.cpp
+	"../include/Game.h"
+	<iostream>
+	<string>
+	"Console.h"
+
+1360284821 /home/james/CppTextAdvGame/include/Game.h
+	"Player.h"
+
+1360281980 source:/home/james/CppTextAdvGame/src/Item.cpp
+	"../include/Item.h"
+
+1360282069 /home/james/CppTextAdvGame/include/Item.h
+	<string>
+
+1360282075 source:/home/james/CppTextAdvGame/src/Monster.cpp
+	"../include/Monster.h"
+
+1360282697 /home/james/CppTextAdvGame/include/Monster.h
+	"Item.h"
+	<vector>
+	<string>
+
+1360282080 source:/home/james/CppTextAdvGame/src/Player.cpp
+	"../include/Player.h"
+
+1360283741 /home/james/CppTextAdvGame/include/Player.h
+	<string>
+	<vector>
+	"Item.h"
+	"Room.h"
+
+1360282434 /home/james/CppTextAdvGame/include/Room.h
+	<vector>
+	"Monster.h"
+	"Item.h"
+
+1360282450 source:/home/james/CppTextAdvGame/src/Room.cpp
+	"../include/Room.h"
+
+1360290161 source:/home/james/CppTextAdvGame/src/Console.cpp
+	"Console.h"
+	<string>
+	<iostream>
+	<stringutils.hpp>
+
+1360288499 /home/james/CppTextAdvGame/include/Console.h
+	<string>
+
+1360290431 /home/james/useful_cpp_libs/cpp-utils/stringutils.hpp
+	<algorithm>
+	<vector>
+	<string>
+	"listutils.hpp"
+
+1360289619 /home/james/useful_cpp_libs/cpp-utils/listutils.hpp
+	<algorithm>
+	<iterator>
+	<sstream>
+	<list>
+	"metautils.hpp"
+
+1360289619 /home/james/useful_cpp_libs/cpp-utils/metautils.hpp
+
