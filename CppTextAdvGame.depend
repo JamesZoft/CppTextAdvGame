@@ -1,13 +1,16 @@
 # depslib dependency file v1.0
-1360286473 source:/home/james/CppTextAdvGame/main.cpp
+1361236936 source:/home/james/CppTextAdvGame/main.cpp
 	<iostream>
 	"include/Game.h"
+	<string>
+	<boost/regex.hpp>
 
-1360288755 source:/home/james/CppTextAdvGame/src/Game.cpp
+1361241251 source:/home/james/CppTextAdvGame/src/Game.cpp
 	"../include/Game.h"
 	<iostream>
 	<string>
 	"Console.h"
+	"CommandAnalyser.h"
 
 1360284821 /home/james/CppTextAdvGame/include/Game.h
 	"Player.h"
@@ -26,16 +29,17 @@
 	<vector>
 	<string>
 
-1360282080 source:/home/james/CppTextAdvGame/src/Player.cpp
+1361241476 source:/home/james/CppTextAdvGame/src/Player.cpp
 	"../include/Player.h"
+	<string>
 
-1360283741 /home/james/CppTextAdvGame/include/Player.h
+1361241429 /home/james/CppTextAdvGame/include/Player.h
 	<string>
 	<vector>
 	"Item.h"
 	"Room.h"
 
-1360282434 /home/james/CppTextAdvGame/include/Room.h
+1361241972 /home/james/CppTextAdvGame/include/Room.h
 	<vector>
 	"Monster.h"
 	"Item.h"
@@ -43,11 +47,13 @@
 1360282450 source:/home/james/CppTextAdvGame/src/Room.cpp
 	"../include/Room.h"
 
-1360290161 source:/home/james/CppTextAdvGame/src/Console.cpp
+1360366618 source:/home/james/CppTextAdvGame/src/Console.cpp
 	"Console.h"
 	<string>
 	<iostream>
 	<stringutils.hpp>
+	<termios.h>
+	<sys/ioctl.h>
 
 1360288499 /home/james/CppTextAdvGame/include/Console.h
 	<string>
@@ -66,4 +72,31 @@
 	"metautils.hpp"
 
 1360289619 /home/james/useful_cpp_libs/cpp-utils/metautils.hpp
+
+1361241448 source:/home/james/CppTextAdvGame/src/CommandAnalyser.cpp
+	"CommandAnalyser.h"
+	"Player.h"
+	<string>
+	<regex>
+	<iostream>
+	<boost/regex.hpp>
+
+1361241414 /home/james/CppTextAdvGame/include/CommandAnalyser.h
+	<string>
+	<vector>
+	<boost/regex.hpp>
+	"Player.h"
+
+1358790429 /usr/include/boost/regex
+
+1358790425 /usr/include/boost/algorithm
+
+1358790429 /usr/include/boost/iterator
+
+1361242378 source:/home/james/CppTextAdvGame/src/RoomWrapper.cpp
+	"RoomWrapper.h"
+	"Room.h"
+
+1361242397 /home/james/CppTextAdvGame/include/RoomWrapper.h
+	"Room.h"
 

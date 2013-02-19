@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Console.h"
+#include "CommandAnalyser.h"
 
 using namespace std;
 
@@ -19,7 +20,12 @@ void Game::play()
     Console::write("Welcome to Erazhar, the magical castle of the dreaded Lord Torhazar! You must find your way through the maze of rooms to the room where Torhazar resides,");
     Console::write("and kill him. He has many monsters guarding his maze, but there are also magical treasures, lost in the ages awaiting your discovery!\n");
     Console::write(std::string("Good luck, ") + player.getName() + std::string("!"));
-
+    string command;
+    cin >> command;
+    while(!CommandAnalyser::analyse(command, player))
+    {
+        cin >> command;
+    }
 }
 
 Game::~Game()

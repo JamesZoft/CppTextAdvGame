@@ -1,10 +1,11 @@
 #include <iostream>
 #include "include/Game.h"
+#include <string>
+#include <boost/regex.hpp>
 
-using namespace std;
 
 int main()
 {
-   Game* g = new Game();
-   g->play();
+    Game* g = new Game();
+    g->play();
 }

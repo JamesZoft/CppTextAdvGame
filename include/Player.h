@@ -13,6 +13,7 @@ class Player
         inline std::string getName() {return name;}
         inline std::vector<Item> getInventory() {return inventory;}
         inline void setName(std::string const& m_name) {name = m_name;}
+        void dealWithMove(std::string moveCmd);
     protected:
     private:
         std::string name;
