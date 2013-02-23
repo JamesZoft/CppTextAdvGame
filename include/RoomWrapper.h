@@ -1,13 +1,14 @@
 #ifndef ROOMWRAPPER_H
 #define ROOMWRAPPER_H
 #include "Room.h"
+#include <string>
 
 class RoomWrapper
 {
     public:
         RoomWrapper();
         virtual ~RoomWrapper();
-        std::vector<Room> getConnectingRooms();
+        std::vector<std::string> getConnectingRooms();
     protected:
     private:
         Room *room;

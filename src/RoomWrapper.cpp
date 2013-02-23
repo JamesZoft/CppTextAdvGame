@@ -1,12 +1,13 @@
 #include "RoomWrapper.h"
 #include "Room.h"
+#include <string>
 
 RoomWrapper::RoomWrapper()
 {
     //ctor
 }
 
-std::vector<Room> RoomWrapper::getConnectingRooms()
+std::vector<std::string> RoomWrapper::getConnectingRooms()
 {
     return room->getConnectingRooms();
 }

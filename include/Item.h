@@ -5,7 +5,8 @@
 class Item
 {
     public:
-        Item();
+        Item(std::string _name);
+        inline std::string getName() const {return name;}
         virtual ~Item();
     protected:
     private:

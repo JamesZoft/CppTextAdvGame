@@ -10,6 +10,7 @@ class Game
         virtual ~Game();
     protected:
     private:
+        void generateRooms();
         Player player;
 };
 

@@ -1,0 +1,15 @@
+{
+	"startRoom": 
+	{
+		"connectingRooms": [ "Main hall" ],
+		"items": [ "sword", "shield" ],
+		"monsters": [ ]
+	},
+	
+	"Main hall":
+	{
+		"connectingRooms": [ "Main hall", "Bedrooms"],
+		"items": [ "key" ],
+		"monsters": [ { "name":"goblin", "hp": 15, "attack": 5 }]
+	}
+}

@@ -5,26 +5,32 @@
 	<string>
 	<boost/regex.hpp>
 
-1361241251 source:/home/james/CppTextAdvGame/src/Game.cpp
+1361592742 source:/home/james/CppTextAdvGame/src/Game.cpp
 	"../include/Game.h"
 	<iostream>
 	<string>
 	"Console.h"
 	"CommandAnalyser.h"
+	"Room.h"
+	<fstream>
+	"json/json.h"
+	"cJSON.h"
 
-1360284821 /home/james/CppTextAdvGame/include/Game.h
+1361312116 /home/james/CppTextAdvGame/include/Game.h
 	"Player.h"
 
-1360281980 source:/home/james/CppTextAdvGame/src/Item.cpp
+1361593161 source:/home/james/CppTextAdvGame/src/Item.cpp
 	"../include/Item.h"
-
-1360282069 /home/james/CppTextAdvGame/include/Item.h
 	<string>
 
-1360282075 source:/home/james/CppTextAdvGame/src/Monster.cpp
-	"../include/Monster.h"
+1361593079 /home/james/CppTextAdvGame/include/Item.h
+	<string>
 
-1360282697 /home/james/CppTextAdvGame/include/Monster.h
+1361590551 source:/home/james/CppTextAdvGame/src/Monster.cpp
+	"../include/Monster.h"
+	<string>
+
+1361590785 /home/james/CppTextAdvGame/include/Monster.h
 	"Item.h"
 	<vector>
 	<string>
@@ -39,10 +45,12 @@
 	"Item.h"
 	"Room.h"
 
-1361241972 /home/james/CppTextAdvGame/include/Room.h
+1361593091 /home/james/CppTextAdvGame/include/Room.h
 	<vector>
 	"Monster.h"
 	"Item.h"
+	<string>
+	<iostream>
 
 1360282450 source:/home/james/CppTextAdvGame/src/Room.cpp
 	"../include/Room.h"
@@ -93,10 +101,81 @@
 
 1358790429 /usr/include/boost/iterator
 
-1361242378 source:/home/james/CppTextAdvGame/src/RoomWrapper.cpp
+1361588607 source:/home/james/CppTextAdvGame/src/RoomWrapper.cpp
 	"RoomWrapper.h"
 	"Room.h"
+	<string>
 
-1361242397 /home/james/CppTextAdvGame/include/RoomWrapper.h
+1361588649 /home/james/CppTextAdvGame/include/RoomWrapper.h
 	"Room.h"
+	<string>
+
+1361314685 /home/james/CppTextAdvGame/include/json.h
+	"block_allocator.h"
+
+1361314589 /home/james/CppTextAdvGame/include/block_allocator.h
+
+1361314589 source:/home/james/CppTextAdvGame/src/block_allocator.cpp
+	<memory.h>
+	<algorithm>
+	"block_allocator.h"
+
+1361314589 source:/home/james/CppTextAdvGame/src/json.cpp
+	<memory.h>
+	"json.h"
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/json.h
+	"autolink.h"
+	"value.h"
+	"reader.h"
+	"writer.h"
+	"features.h"
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/autolink.h
+	"config.h"
+	<cpptl/cpptl_autolink.h>
+	"autolink.h"
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/config.h
+	<cpptl/config.h>
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/value.h
+	"forwards.h"
+	<string>
+	<vector>
+	<map>
+	<cpptl/smallmap.h>
+	<cpptl/forwards.h>
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/forwards.h
+	"config.h"
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/reader.h
+	"features.h"
+	"value.h"
+	<deque>
+	<stack>
+	<string>
+	<iostream>
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/features.h
+	"forwards.h"
+
+1268379095 /home/james/useful_cpp_libs/jsoncpp-src-0.5.0/include/json/writer.h
+	"value.h"
+	<vector>
+	<string>
+	<iostream>
+
+1360414486 source:/home/james/CppTextAdvGame/src/cJSON.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1360414260 /home/james/CppTextAdvGame/include/cJSON.h
 

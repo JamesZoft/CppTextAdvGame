@@ -1,4 +1,5 @@
 #include "../include/Monster.h"
+#include <string>
 
 Monster::Monster()
 {

@@ -1,8 +1,9 @@
 #include "../include/Item.h"
+#include <string>
 
-Item::Item()
+Item::Item(std::string _name)
 {
-    //ctor
+    name = _name;
 }
 
 Item::~Item()
