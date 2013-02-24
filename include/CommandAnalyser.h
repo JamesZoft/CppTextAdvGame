@@ -10,12 +10,12 @@ class CommandAnalyser
     public:
         CommandAnalyser();
         virtual ~CommandAnalyser();
-        static bool analyse(std::string command, Player player);
+        static bool analyse(std::string command, Player *player);
     protected:
 
     private:
         static bool analyseMoveCommand(Player player);
-        inline static bool regexSearch(std::string command, boost::regex regexString) { boost::smatch results; return boost::regex_search(command, results, regexString); }
+         inline static bool regexSearch(std::string command, boost::regex regexString) { boost::smatch results; return boost::regex_search(command, results, regexString); }
         static void help();
         std::vector<std::string> commands = {"help", "quit"};
 };

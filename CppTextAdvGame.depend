@@ -5,7 +5,7 @@
 	<string>
 	<boost/regex.hpp>
 
-1361592742 source:/home/james/CppTextAdvGame/src/Game.cpp
+1361668855 source:/home/james/CppTextAdvGame/src/Game.cpp
 	"../include/Game.h"
 	<iostream>
 	<string>
@@ -16,8 +16,10 @@
 	"json/json.h"
 	"cJSON.h"
 
-1361312116 /home/james/CppTextAdvGame/include/Game.h
+1361665642 /home/james/CppTextAdvGame/include/Game.h
 	"Player.h"
+	"Room.h"
+	<vector>
 
 1361593161 source:/home/james/CppTextAdvGame/src/Item.cpp
 	"../include/Item.h"
@@ -35,17 +37,20 @@
 	<vector>
 	<string>
 
-1361241476 source:/home/james/CppTextAdvGame/src/Player.cpp
+1361660916 source:/home/james/CppTextAdvGame/src/Player.cpp
 	"../include/Player.h"
 	<string>
+	<boost/regex.hpp>
+	"Game.h"
 
-1361241429 /home/james/CppTextAdvGame/include/Player.h
+1361660919 /home/james/CppTextAdvGame/include/Player.h
 	<string>
 	<vector>
 	"Item.h"
 	"Room.h"
+	<boost/regex.hpp>
 
-1361593091 /home/james/CppTextAdvGame/include/Room.h
+1361653228 /home/james/CppTextAdvGame/include/Room.h
 	<vector>
 	"Monster.h"
 	"Item.h"
@@ -81,7 +86,7 @@
 
 1360289619 /home/james/useful_cpp_libs/cpp-utils/metautils.hpp
 
-1361241448 source:/home/james/CppTextAdvGame/src/CommandAnalyser.cpp
+1361666418 source:/home/james/CppTextAdvGame/src/CommandAnalyser.cpp
 	"CommandAnalyser.h"
 	"Player.h"
 	<string>
@@ -89,7 +94,7 @@
 	<iostream>
 	<boost/regex.hpp>
 
-1361241414 /home/james/CppTextAdvGame/include/CommandAnalyser.h
+1361666411 /home/james/CppTextAdvGame/include/CommandAnalyser.h
 	<string>
 	<vector>
 	<boost/regex.hpp>

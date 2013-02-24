@@ -17,7 +17,7 @@ void CommandAnalyser::help()
 
 }
 
-bool CommandAnalyser::analyse(std::string command, Player player)
+bool CommandAnalyser::analyse(std::string command, Player *player)
 {
     boost::smatch results;
     if(regexSearch(command, boost::regex("[qQ](uit)?")))
@@ -27,7 +27,7 @@ bool CommandAnalyser::analyse(std::string command, Player player)
     else if(regexSearch(command, boost::regex("[mM]ove")))
     {
         cout << "Move where?" << endl;
-        return analyseMoveCommand(player);
+        return player->analyseMoveCommand();
     }
     else
         cout << "That is not a valid command, type \"help\" if you don\'t know what to do." << endl;
@@ -35,14 +35,15 @@ bool CommandAnalyser::analyse(std::string command, Player player)
 
 
 }
-
+/*
 bool CommandAnalyser::analyseMoveCommand(Player player)
 {
     string moveCmd;
     cin >> moveCmd;
     if(regexSearch(moveCmd, boost::regex("(north|east|south|west)")))
     {
-        player.dealWithMove(moveCmd);
+        cout << "asdasd" << endl;
+        return player.dealWithMove(moveCmd);
     }
     if(regexSearch(moveCmd, boost::regex("[qQ](uit)?")))
         return false;
@@ -53,7 +54,7 @@ bool CommandAnalyser::analyseMoveCommand(Player player)
     }
 
 
-}
+}*/
 
 CommandAnalyser::~CommandAnalyser()
 {

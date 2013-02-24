@@ -11,26 +11,30 @@ using namespace std;
 
 Game::Game()
 {
-    //ctor
+
 }
+
+ std::vector<Room> Game::rooms;
 
 void Game::play()
 {
     string name;
     cout << "Please enter your name!" << endl;
     cin >> name;
-    player.setName(name);
     Console::write("Welcome to Erazhar, the magical castle of the dreaded Lord Torhazar! You must find your way through the maze of rooms to the room where Torhazar resides,");
     Console::write("and kill him. He has many monsters guarding his maze, but there are also magical treasures, lost in the ages awaiting your discovery!\n");
-    Console::write(std::string("Good luck, ") + player.getName() + std::string("!"));
+    Console::write(std::string("Good luck, ") + name + std::string("!"));
    // cout << "a1" << endl;
     generateRooms();
+
+    player = new Player(&Game::getRooms()[0]);
     string command;
     cin >> command;
     while(!CommandAnalyser::analyse(command, player))
     {
         cin >> command;
     }
+
 }
 
  std::string getcwd_PRIME() {
@@ -42,7 +46,6 @@ void Game::play()
 
 void Game::generateRooms()
 {
-    vector<Room> rooms;
     ifstream myfile("res/rooms/rooms.json");
     std::string str((std::istreambuf_iterator<char>(myfile)),
                  std::istreambuf_iterator<char>());
@@ -54,6 +57,7 @@ void Game::generateRooms()
     while(room)
     {
         Room newRoom;
+        newRoom.setName(room->string);
         cJSON *property = room->child;
         while(property)
         {
@@ -93,6 +97,7 @@ void Game::generateRooms()
             }
             property = property->next;
         }
+        Game::rooms.push_back(newRoom);
         cout << "Printing the new room!" << endl;
         cout << "first connecting room: " << newRoom.getConnectingRooms()[0] << endl;
         cout << "first item: " << newRoom.getItems()[0].getName() << endl;
