@@ -1,5 +1,8 @@
-#include "../include/Item.h"
+#include "Item.h"
 #include <string>
+#include "ItemModifier.h"
+
+using namespace std;
 
 Item::Item(std::string _name)
 {

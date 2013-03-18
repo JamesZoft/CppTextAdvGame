@@ -1,64 +1,78 @@
 # depslib dependency file v1.0
-1361236936 source:/home/james/CppTextAdvGame/main.cpp
+1363641403 source:/home/james/CppTextAdvGame/main.cpp
 	<iostream>
 	"include/Game.h"
 	<string>
 	<boost/regex.hpp>
 
-1361668855 source:/home/james/CppTextAdvGame/src/Game.cpp
-	"../include/Game.h"
+1363189712 source:/home/james/CppTextAdvGame/src/Game.cpp
+	"Game.h"
 	<iostream>
 	<string>
 	"Console.h"
 	"CommandAnalyser.h"
 	"Room.h"
 	<fstream>
-	"json/json.h"
 	"cJSON.h"
+	"ItemFactory.h"
 
-1361665642 /home/james/CppTextAdvGame/include/Game.h
+1363645876 /home/james/CppTextAdvGame/include/Game.h
 	"Player.h"
 	"Room.h"
 	<vector>
 
-1361593161 source:/home/james/CppTextAdvGame/src/Item.cpp
-	"../include/Item.h"
+1363209036 source:/home/james/CppTextAdvGame/src/Item.cpp
+	"Item.h"
 	<string>
+	"ItemModifier.h"
 
-1361593079 /home/james/CppTextAdvGame/include/Item.h
+1363629932 /home/james/CppTextAdvGame/include/Item.h
 	<string>
+	"ItemModifier.h"
+	<vector>
+	<memory>
+	<list>
 
-1361590551 source:/home/james/CppTextAdvGame/src/Monster.cpp
-	"../include/Monster.h"
+1363645711 source:/home/james/CppTextAdvGame/src/Monster.cpp
+	"Monster.h"
 	<string>
+	"Console.h"
 
-1361590785 /home/james/CppTextAdvGame/include/Monster.h
+1363645930 /home/james/CppTextAdvGame/include/Monster.h
 	"Item.h"
 	<vector>
 	<string>
+	"Player.h"
 
-1361660916 source:/home/james/CppTextAdvGame/src/Player.cpp
-	"../include/Player.h"
+1363645834 source:/home/james/CppTextAdvGame/src/Player.cpp
+	"Player.h"
 	<string>
 	<boost/regex.hpp>
 	"Game.h"
+	"Console.h"
+	<sstream>
+	"ItemModifier.h"
+	"Item.h"
+	"../../useful_cpp_libs/cpp-utils/stringutils.hpp"
 
-1361660919 /home/james/CppTextAdvGame/include/Player.h
+1363645499 /home/james/CppTextAdvGame/include/Player.h
 	<string>
 	<vector>
 	"Item.h"
 	"Room.h"
 	<boost/regex.hpp>
+	<map>
 
-1361653228 /home/james/CppTextAdvGame/include/Room.h
+1363195091 /home/james/CppTextAdvGame/include/Room.h
 	<vector>
 	"Monster.h"
 	"Item.h"
 	<string>
 	<iostream>
+	<algorithm>
 
-1360282450 source:/home/james/CppTextAdvGame/src/Room.cpp
-	"../include/Room.h"
+1363201373 source:/home/james/CppTextAdvGame/src/Room.cpp
+	"Room.h"
 
 1360366618 source:/home/james/CppTextAdvGame/src/Console.cpp
 	"Console.h"
@@ -86,15 +100,19 @@
 
 1360289619 /home/james/useful_cpp_libs/cpp-utils/metautils.hpp
 
-1361666418 source:/home/james/CppTextAdvGame/src/CommandAnalyser.cpp
+1363641714 source:/home/james/CppTextAdvGame/src/CommandAnalyser.cpp
 	"CommandAnalyser.h"
 	"Player.h"
 	<string>
 	<regex>
 	<iostream>
 	<boost/regex.hpp>
+	"Item.h"
+	"Console.h"
+	"Monster.h"
+	<vector>
 
-1361666411 /home/james/CppTextAdvGame/include/CommandAnalyser.h
+1362009090 /home/james/CppTextAdvGame/include/CommandAnalyser.h
 	<string>
 	<vector>
 	<boost/regex.hpp>
@@ -183,4 +201,75 @@
 	"cJSON.h"
 
 1360414260 /home/james/CppTextAdvGame/include/cJSON.h
+
+1363641448 source:/home/james/CppTextAdvGame/src/ItemFactory.cpp
+	"ItemFactory.h"
+	<string>
+	<memory>
+	"ItemModifier.h"
+	"ItemModifierAttack.h"
+	"Item.h"
+	"ItemModifierDefense.h"
+
+1363139791 /home/james/CppTextAdvGame/include/ItemFactory.h
+	"Item.h"
+	"cJSON.h"
+
+1362420272 source:/home/james/CppTextAdvGame/src/ItemArmour.cpp
+	"ItemArmour.h"
+	<string>
+
+1362420769 /home/james/CppTextAdvGame/include/ItemArmour.h
+	"Item.h"
+	<string>
+
+1362420522 source:/home/james/CppTextAdvGame/src/ItemMisc.cpp
+	"ItemMisc.h"
+	<string>
+
+1362420498 /home/james/CppTextAdvGame/include/ItemMisc.h
+	"Item.h"
+	<string>
+
+1362420576 source:/home/james/CppTextAdvGame/src/ItemWeapon.cpp
+	"ItemWeapon.h"
+	<string>
+
+1362420841 /home/james/CppTextAdvGame/include/ItemWeapon.h
+	"Item.h"
+	<string>
+
+1363138366 /home/james/CppTextAdvGame/include/ItemModifier.h
+	"PlayerStats.h"
+
+1362424514 source:/home/james/CppTextAdvGame/src/ItemModifier.cpp
+	"ItemModifier.h"
+
+1363645330 /home/james/CppTextAdvGame/include/PlayerStats.h
+
+1363102978 source:/home/james/CppTextAdvGame/src/ItemModifierMisc.cpp
+	"ItemModifierMisc.h"
+
+1363102978 /home/james/CppTextAdvGame/include/ItemModifierMisc.h
+
+1363102970 source:/home/james/CppTextAdvGame/src/ItemModifierSpecial.cpp
+	"ItemModifierSpecial.h"
+
+1363102970 /home/james/CppTextAdvGame/include/ItemModifierSpecial.h
+
+1363129879 source:/home/james/CppTextAdvGame/src/PlayerStats.cpp
+	"PlayerStats.h"
+
+1363174450 /home/james/CppTextAdvGame/include/ItemModifierAttack.h
+	"PlayerStats.h"
+	"ItemModifier.h"
+
+1363174542 /home/james/CppTextAdvGame/include/ItemModifierDefense.h
+	"ItemModifier.h"
+
+1363174471 source:/home/james/CppTextAdvGame/src/ItemModifierAttack.cpp
+	"ItemModifierAttack.h"
+
+1363174524 source:/home/james/CppTextAdvGame/src/ItemModifierDefense.cpp
+	"ItemModifierDefense.h"
 

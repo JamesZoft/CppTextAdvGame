@@ -14,6 +14,8 @@ class CommandAnalyser
     protected:
 
     private:
+        static std::string getItemsAsString(Player *player);
+        static std::string getMonstersAsString(Player *player);
         static bool analyseMoveCommand(Player player);
          inline static bool regexSearch(std::string command, boost::regex regexString) { boost::smatch results; return boost::regex_search(command, results, regexString); }
         static void help();

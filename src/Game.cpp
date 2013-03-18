@@ -1,12 +1,13 @@
-#include "../include/Game.h"
+#include "Game.h"
 #include <iostream>
 #include <string>
 #include "Console.h"
 #include "CommandAnalyser.h"
 #include "Room.h"
 #include <fstream>
-#include "json/json.h"
 #include "cJSON.h"
+#include "ItemFactory.h"
+
 using namespace std;
 
 Game::Game()
@@ -34,7 +35,6 @@ void Game::play()
     {
         cin >> command;
     }
-
 }
 
  std::string getcwd_PRIME() {
@@ -47,10 +47,14 @@ void Game::play()
 void Game::generateRooms()
 {
     ifstream myfile("res/rooms/rooms.json");
+    if(!myfile)
+        cout << "not found" << endl;
     std::string str((std::istreambuf_iterator<char>(myfile)),
                  std::istreambuf_iterator<char>());
     cJSON *root = cJSON_Parse(str.c_str());
-    cJSON *startRoom = cJSON_GetObjectItem(root,"startRoom");
+    if(!root)
+        cout << "Json is probably invalid" << endl;
+    cJSON *startRoom = cJSON_GetObjectItem(root,"Cellar");
     cJSON *connectingRooms = cJSON_GetObjectItem(startRoom, "connectingRooms");
     cJSON *room = root->child;
 
@@ -72,7 +76,7 @@ void Game::generateRooms()
             {
                 for(int i = 0; cJSON *item = cJSON_GetArrayItem(property, i); i++)
                 {
-                    newRoom.addItem(Item(item->valuestring));
+                    newRoom.addItem(ItemFactory::createItem(item));
                 }
             }
             else if(property->string == string("monsters"))
@@ -83,11 +87,11 @@ void Game::generateRooms()
                     cJSON *monsterProperty = monster->child;
                     while(monsterProperty)
                     {
-                        if(monsterProperty->string == "name")
+                        if(monsterProperty->string == string("name"))
                             newMonster.setName(monsterProperty->valuestring);
-                        else if(monsterProperty->string == "hp")
+                        else if(monsterProperty->string == string("hp"))
                             newMonster.setHp(monsterProperty->valueint);
-                        else if(monsterProperty->string == "attack")
+                        else if(monsterProperty->string == string("attack"))
                             newMonster.setAttack(monsterProperty->valueint);
 
                         monsterProperty = monsterProperty->next;
@@ -98,20 +102,14 @@ void Game::generateRooms()
             property = property->next;
         }
         Game::rooms.push_back(newRoom);
-        cout << "Printing the new room!" << endl;
-        cout << "first connecting room: " << newRoom.getConnectingRooms()[0] << endl;
-        cout << "first item: " << newRoom.getItems()[0].getName() << endl;
-       // cout << "first item: " << newRoom.getItems()[1].getName() << endl;
-       // cout << "first monster: " << newRoom.getMonsters()[0].getName() << endl;
+       //cout << "Printing the new room!" << endl;
+       // cout << "first connecting room: " << newRoom.getConnectingRooms()[0] << endl;
+        //cout << "first item: " << newRoom.getItems()[0].getName() << endl;
         room = room->next;
     }
-
-
-
-    //cout << firstConnectingRoom << endl;
 }
 
 Game::~Game()
 {
-    //dtor
+    delete player;
 }

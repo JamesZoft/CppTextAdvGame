@@ -10,7 +10,7 @@ class Game
         Game();
         void play();
         virtual ~Game();
-        static inline std::vector<Room> getRooms() {return Game::rooms;}
+        static inline std::vector<Room> &getRooms() {return Game::rooms;}
         static inline Room *getRoom(std::string roomName) {for(Room &room : Game::getRooms()) {if(room.getName() == roomName){return &room;} }}
     protected:
     private:

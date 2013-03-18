@@ -1,15 +1,43 @@
 {
-	"startRoom": 
+	"Cellar": 
 	{
 		"connectingRooms": [ "Main hall" ],
-		"items": [ "sword", "shield" ],
+		"items": [ { "name":"Sword", "itemType":"weapon", "slot":"weapon", "value":"2"}, { "name":"Shield", "itemType":"armour", "slot":"offhand", "value":"1" } ],
 		"monsters": [ ]
 	},
 	
 	"Main hall":
 	{
-		"connectingRooms": [ "Main hall", "Bedrooms"],
-		"items": [ "key" ],
-		"monsters": [ { "type":"goblin", "hp": 15, "attack": 5 }]
+		"connectingRooms": [ "Cellar", "Bedrooms", "Armoury", "Courtier's rooms" ],
+		"items": [ { "name":"Key", "itemType":"special" } ],
+		"monsters": [ { "name":"goblin", "hp": 15, "attack": 3 }]
+	},
+	
+	"Bedrooms":
+	{
+		"connectingRooms": [ "Main hall" ],
+		"items": [ { "name":"Necklace", "itemType":"misc" }  ],
+		"monsters": [ { "name":"skeleton", "hp": 10, "attack": 5} ]
+	},
+	
+	"Armoury":
+	{
+		"connectingRooms": [ "Main hall" ],
+		"items": [ { "name":"Mithril armor", "itemType":"armour", "value":"3" } , { "name":"Laen broadsword", "itemType":"weapon", "value":"5" }  ],
+		"monsters": [ { "name":"warlock", "hp": 15, "attack": 8}, {"name":"Skeleton minion", "hp": 10, "attack": 5 } ]
+	},
+	
+	"Courtier's rooms":
+	{
+		"connectingRooms": [ "Main hall", "Throne room" ],
+		"items": [ ],
+		"monsters": [ { "name":"Court Jester", "hp": 12, "attack": 7 }, { "name":"Court Jester's Twin", "hp": 12, "attack": 7 } ]
+	},
+	
+	"Throne room":
+	{
+		"connectingRooms": [ "Courtier's rooms" ],
+		"items": [ { "name":"A Sense of Achivement", "itemType":"misc" }  ],
+		"monsters": [ { "name":"Skeleton King", "hp": 25, "attack": 10 } ]
 	}
 }
