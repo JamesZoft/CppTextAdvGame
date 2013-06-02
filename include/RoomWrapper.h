@@ -1,7 +1,9 @@
 #ifndef ROOMWRAPPER_H
 #define ROOMWRAPPER_H
-#include "Room.h"
 #include <string>
+#include <vector>
+
+class Room;
 
 class RoomWrapper
 {

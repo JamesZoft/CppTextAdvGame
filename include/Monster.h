@@ -1,9 +1,10 @@
 #ifndef MONSTER_H
 #define MONSTER_H
-#include "Item.h"
 #include <vector>
 #include <string>
-#include "Player.h"
+
+class Item;
+class Player;
 
 class Monster
 {
@@ -11,11 +12,11 @@ class Monster
         Monster();
         inline std::vector<Item*> getLoot() {return loot;}
         inline std::string getName() {return name;}
-        inline void setName(const std::string &_name) {name = _name;}
-        inline void setHp(const int &_hp) {hp = _hp;}
-        inline void setAttack(const int &_attack) {attack = _attack;}
-        inline void setAlive(bool _alive) { alive = _alive;}
-        void damageSelf(unsigned damage);
+        void setName(const std::string &_name);
+        void setHp(const int &_hp);
+        void setAttack(const int &_attack);
+        void setAlive(bool _alive);
+        void damageSelf(int damage);
         void attackPlayer(Player *player);
         inline bool isAlive() {return alive;}
         virtual ~Monster();

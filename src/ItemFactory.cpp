@@ -5,6 +5,9 @@
 #include "ItemModifierAttack.h"
 #include "Item.h"
 #include "ItemModifierDefense.h"
+#include "cJSON.h"
+#include <sstream>
+#include "Console.h"
 
 using namespace std;
 
@@ -17,6 +20,8 @@ Item& ItemFactory::createItem(cJSON *item)
 {
     Item* newItem = new Item(cJSON_GetObjectItem(item, "name")->valuestring);
     string itemType = cJSON_GetObjectItem(item, "itemType")->valuestring;
+    Console::write(newItem->getName() + "\n");
+    Console::write("type: " + itemType + "\n");
     if(itemType == "weapon")
     {
         const int value = cJSON_GetObjectItem(item, "value")->valueint;

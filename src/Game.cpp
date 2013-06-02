@@ -7,6 +7,8 @@
 #include <fstream>
 #include "cJSON.h"
 #include "ItemFactory.h"
+#include "Player.h"
+#include "Monster.h"
 
 using namespace std;
 
@@ -37,12 +39,26 @@ void Game::play()
     }
 }
 
+std::vector<Room>& Game::getRooms()
+{
+    return rooms;
+}
+
  std::string getcwd_PRIME() {
        char buff[PATH_MAX];
        getcwd( buff, PATH_MAX );
        std::string cwd( buff );
        return cwd;
+}
+
+Room* Game::getRoom(std::string roomName)
+{
+    for(Room &room : Game::getRooms())
+    {
+        if(room.getName() == roomName)
+            return &room;
     }
+}
 
 void Game::generateRooms()
 {

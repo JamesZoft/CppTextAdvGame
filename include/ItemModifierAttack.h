@@ -1,15 +1,19 @@
 #ifndef ITEMMODIFIERATTACK_H
 #define ITEMMODIFIERATTACK_H
-#include "PlayerStats.h"
-#include "ItemModifier.h"
 
+#include "ItemModifier.h"
+#include "PlayerStats.h"
+
+class PlayerStats;
+class ItemModifier;
 
 class ItemModifierAttack : public ItemModifier
 {
     public:
         ItemModifierAttack(int _modifier);
         virtual ~ItemModifierAttack();
-        void modify(PlayerStats &stats) override {stats.damage += modifier; }
+        void modify(PlayerStats &stats) override;
+        bool isEquippable() override;
     protected:
     private:
         int modifier;

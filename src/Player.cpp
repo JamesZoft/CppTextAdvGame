@@ -6,12 +6,16 @@
 #include <sstream>
 #include "ItemModifier.h"
 #include "Item.h"
+#include "Monster.h"
+#include "PlayerStats.h"
+#include "CommandAnalyser.h"
 #include "../../useful_cpp_libs/cpp-utils/stringutils.hpp"
 
 using namespace std;
 
 Player::Player(Room *startingRoom)
 {
+    stats.damage = 5;
     currentRoom = startingRoom;
     equippedItems.insert(std::make_pair("head", nullptr));
     equippedItems.insert(std::make_pair("neck", nullptr));
@@ -29,39 +33,48 @@ Player::Player(Room *startingRoom)
 void Player::applyModifiers()
 {
     list<ItemModifier*> modifiers;
-    for(Item *item : inventory)
+    for(auto item : inventory)
     {
-        if(item->getModifiers().size() != 0)
+        for(auto mod : item->getModifiers())
         {
-           modifiers.splice(modifiers.end(), item->getModifiers());
+            mod->modify(stats);
         }
-    }
-    for(ItemModifier *m : modifiers) {
-        m->modify(*stats);
     }
 }
 
 void Player::pickupItem()
 {
-    string itemName;
-    cin >> itemName;
-    Item *item;
-    for(Item *i : currentRoom->getItems())
+    Console::write("The items available to pick up are: ");
+    for(unsigned i = 0; i < currentRoom->getItems().size(); i++)
     {
-        if(i->getName() == itemName)
-        {
-            item = i;
-        }
+        std::stringstream output;
+        output << i << ": " << currentRoom->getItems()[i]->getName() << ",\n";
+        Console::write(output.str());
     }
-    if(currentRoom->removeItem(item))
+    Console::write("Which item do you want to pick up?");
+    unsigned itemNumber;
+    cin >> itemNumber;
+    if(itemNumber < currentRoom->getItems().size() || itemNumber >= 0)
     {
-        Console::write("You picked up a " + item->getName() + "! Would you like to equip it? [y/n]");
-        inventory.push_back(item);
-        string answer;
-        cin >> answer;
-        if(regexSearch(answer, boost::regex("[yY](es)?")))
+        Item* item = currentRoom->getItems()[itemNumber];
+        if(currentRoom->removeItem(item))
         {
-            equipItem(item->getName());
+            bool isEquippable = true;
+            for(ItemModifier* m : item->getModifiers())
+            {
+                if(m->isEquippable())
+                {
+                    Console::write("You picked up a " + item->getName() + "! Would you like to equip it? [y/n]");
+                    inventory.push_back(item);
+                    string answer;
+                    cin >> answer;
+                    if(CommandAnalyser::regexSearch(answer, boost::regex("[yY](es)?")))
+                    {
+                        equipItem(item->getName());
+                    }
+                }
+            }
+
         }
     }
 }
@@ -85,7 +98,7 @@ void Player::equipItem(string itemName)
             Console::write("You currently have " + currEquippedItem->getName() + " equipped. Do you want to swap it out for the " + item->getName() + "?");
             string response;
             cin >> response;
-            if(regexSearch(response, boost::regex("[yY](es)?")))
+            if(CommandAnalyser::regexSearch(response, boost::regex("[yY](es)?")))
             {
                 equippedItems[item->getEquipSlot()] = item;
                 Console::write("You have equipped the " + item->getName() + ".");
@@ -108,14 +121,15 @@ bool Player::analyseAttackCommand()
     Console::write("Which monster do you want to attack?");
     unsigned monsterNumber;
     cin >> monsterNumber;
-    Monster m = currentRoom->getMonsters()[monsterNumber];
     if(monsterNumber < currentRoom->getMonsters().size() || monsterNumber >= 0)
     {
+        Monster m = currentRoom->getMonsters()[monsterNumber];
         applyModifiers();
         while(m.isAlive())
         {
-            m.damageSelf(stats->damage);
-            Console::write("You have damaged the " + m.getName() + " for " + util::string::from(stats->damage) + " damage!");
+            cout << "monster isalive: " << m.isAlive() << endl;
+            Console::write("You have damaged the " + m.getName() + " for " + util::string::from(stats.damage) + " damage!\n");
+            m.damageSelf(stats.damage);
         }
     }
     else
@@ -124,6 +138,31 @@ bool Player::analyseAttackCommand()
         analyseMoveCommand();
     }
 
+}
+
+Room* Player::getCurrentRoom()
+{
+    return currentRoom;
+}
+/*
+static bool regexSearch(std::string command, boost::regex regexString)
+{
+    boost::smatch results; return boost::regex_search(command, results, regexString);
+}*/
+
+void Player::setName(std::string const& m_name)
+{
+    name = m_name;
+}
+
+void Player::damageSelf(int damage)
+{
+    stats.health = damage;
+}
+
+PlayerStats Player::getStats()
+{
+    return stats;
 }
 
 bool Player::analyseMoveCommand()
@@ -139,7 +178,7 @@ bool Player::analyseMoveCommand()
     }
     string newRoomName;
     cin >> newRoomName;
-    if(regexSearch(newRoomName, boost::regex("[qQ](uit)?")))
+    if(CommandAnalyser::regexSearch(newRoomName, boost::regex("[qQ](uit)?")))
         return false;
     unsigned newRoomNumber;
     std::stringstream stream(newRoomName); stream >> newRoomNumber;

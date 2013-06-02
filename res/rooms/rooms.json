@@ -2,7 +2,7 @@
 	"Cellar": 
 	{
 		"connectingRooms": [ "Main hall" ],
-		"items": [ { "name":"Sword", "itemType":"weapon", "slot":"weapon", "value":"2"}, { "name":"Shield", "itemType":"armour", "slot":"offhand", "value":"1" } ],
+		"items": [ { "name":"Sword", "itemType":"weapon", "slot":"weapon", "value": 2}, { "name":"Shield", "itemType":"armour", "slot":"offhand", "value": 1 } ],
 		"monsters": [ ]
 	},
 	
@@ -10,7 +10,7 @@
 	{
 		"connectingRooms": [ "Cellar", "Bedrooms", "Armoury", "Courtier's rooms" ],
 		"items": [ { "name":"Key", "itemType":"special" } ],
-		"monsters": [ { "name":"goblin", "hp": 15, "attack": 3 }]
+		"monsters": [ { "name":"goblin", "hp": 15, "attack":3 }]
 	},
 	
 	"Bedrooms":

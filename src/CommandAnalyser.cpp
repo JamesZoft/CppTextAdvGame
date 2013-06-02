@@ -7,6 +7,7 @@
 #include "Item.h"
 #include "Console.h"
 #include "Monster.h"
+#include "Room.h"
 #include <vector>
 
 using namespace std;
@@ -18,7 +19,12 @@ CommandAnalyser::CommandAnalyser()
 
 void CommandAnalyser::help()
 {
-    Console::write("The commands available are: q(uit), h(help), m(ove) and l(ook).");
+    Console::write("The commands available are: q(uit), h(help), m(ove), a(ttack) and l(ook).");
+}
+
+bool CommandAnalyser::regexSearch(std::string command, boost::regex regexString)
+{
+    boost::smatch results; return boost::regex_search(command, results, regexString);
 }
 
 bool CommandAnalyser::analyse(std::string command, Player *player)
@@ -36,7 +42,8 @@ bool CommandAnalyser::analyse(std::string command, Player *player)
     else if(regexSearch(command, boost::regex("[lL](ook)?")))
     {
 
-        Console::write("You are in the " + player->getCurrentRoom()->getName() + ". As you look around the room, you see" + getItemsAsString(player)
+        Console::write("You are in the " + player->getCurrentRoom()->getName()
+                        + ". As you look around the room, you see" + getItemsAsString(player)
         + " and there" +  getMonstersAsString(player) + "\n");
 
     }

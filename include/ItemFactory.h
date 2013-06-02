@@ -1,8 +1,8 @@
 #ifndef ITEMFACTORY_H
 #define ITEMFACTORY_H
-#include "Item.h"
-#include "cJSON.h"
 
+class Item;
+class cJSON;
 
 class ItemFactory
 {

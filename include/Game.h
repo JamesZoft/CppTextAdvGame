@@ -1,8 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
-#include "Player.h"
-#include "Room.h"
 #include <vector>
+#include "Room.h"
+
+class Player;
 
 class Game
 {
@@ -10,8 +11,8 @@ class Game
         Game();
         void play();
         virtual ~Game();
-        static inline std::vector<Room> &getRooms() {return Game::rooms;}
-        static inline Room *getRoom(std::string roomName) {for(Room &room : Game::getRooms()) {if(room.getName() == roomName){return &room;} }}
+        static std::vector<Room> &getRooms();
+        static Room *getRoom(std::string roomName);
     protected:
     private:
         void generateRooms();

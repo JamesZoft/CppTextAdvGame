@@ -1,7 +1,7 @@
 #ifndef ITEMMODIFIER_H
 #define ITEMMODIFIER_H
-#include "PlayerStats.h"
 
+class PlayerStats;
 
 class ItemModifier
 {
@@ -9,6 +9,7 @@ class ItemModifier
         ItemModifier();
         virtual ~ItemModifier();
         virtual void modify(PlayerStats &stats) = 0;
+        virtual bool isEquippable() = 0;
     protected:
     private:
 

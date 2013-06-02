@@ -3,7 +3,8 @@
 #include <string>
 #include <vector>
 #include <boost/regex.hpp>
-#include "Player.h"
+
+class Player;
 
 class CommandAnalyser
 {
@@ -11,13 +12,13 @@ class CommandAnalyser
         CommandAnalyser();
         virtual ~CommandAnalyser();
         static bool analyse(std::string command, Player *player);
+        static bool regexSearch(std::string command, boost::regex regexString);
     protected:
 
     private:
         static std::string getItemsAsString(Player *player);
         static std::string getMonstersAsString(Player *player);
         static bool analyseMoveCommand(Player player);
-         inline static bool regexSearch(std::string command, boost::regex regexString) { boost::smatch results; return boost::regex_search(command, results, regexString); }
         static void help();
         std::vector<std::string> commands = {"help", "quit"};
 };

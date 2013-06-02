@@ -1,4 +1,6 @@
 #include "Room.h"
+#include "Monster.h"
+#include "Item.h"
 
 Room::Room()
 {
@@ -16,6 +18,42 @@ bool Room::removeItem(Item *item)
     else
         return false;
 
+}
+
+std::vector<Monster> Room::getMonsters()
+{
+    return monsters;
+}
+
+std::vector<std::string> Room::getConnectingRooms()
+{
+    return connectingRooms;
+}
+
+void Room::setName(const std::string& _name)
+{
+     name = _name;
+}
+
+void Room::addConnectingRoom(const std::string& r)
+{
+    connectingRooms.push_back(r);
+}
+
+void Room::addMonster(const Monster& m)
+{
+    monsters.push_back(m);
+}
+
+void Room::addItem(Item& i)
+{
+    itemsInRoom.push_back(&i);
+    std::cout << "added item: " << i.getName() << std::endl;
+}
+
+std::vector<Item*> Room::getItems()
+{
+    return itemsInRoom;
 }
 
 Room::~Room()
